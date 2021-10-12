@@ -28,7 +28,7 @@ function App() {
 			sku: "",
 		},
 	]);
-	const url = "http://localhost:5000/api/";
+	const url = "https://myappln-backend.azurewebsites.net/api/";
 	useEffect(() => {
 		axios
 			.post(`${url}custdata`)
