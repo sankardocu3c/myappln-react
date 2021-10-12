@@ -1,0 +1,18 @@
+.navig{
+    display: inline-flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.button{
+    display: inline-flex;
+    height: auto;
+    width: fit-content;
+    margin-right: 20px;
+    border-radius: 8px;   
+    background-color: rgb(58, 58, 241);
+    border: 2px solid rgb(58, 58, 241);
+    
+}
+
+#outlined-basic{
+    width: 35px;
+}

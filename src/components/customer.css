@@ -1,0 +1,94 @@
+.container{
+    margin: 22px;
+    border: 2px rgba(0, 0, 255, 0.637) solid;
+    border-radius: 20px;
+    height: auto;
+    box-sizing: border-box;
+    font-family: Arial;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.849);
+}
+.flexbox-item{
+    display: flex;
+    justify-content: start;
+}
+
+.flexbox-item1{
+    flex:1;
+    margin: 25px;
+}
+.flexbox-item2{
+    flex:1;
+    margin: 25px;
+}
+.flexbox-item3{
+    flex:1;
+    margin: 25px;
+}
+.flexbox-item4{
+    flex:1;
+    margin: 25px;
+}
+.flexbox-item5{
+    flex:1;
+    margin: 25px;
+}
+.flexbox-item6{
+    flex:1;
+    margin: 25px;
+}
+.flexbox-item7{
+    flex:1;
+    margin: 25px;
+}
+.flexbox-item8{
+    flex:1;
+    margin: 25px;
+}
+.flexbox-item9{
+    flex:1;
+    margin: 25px;
+}
+.purchase-container{
+    border: 2px rgba(0, 0, 255, 0.637) solid;
+    border-radius: 20px;
+    height:600px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.863);
+}
+.purchase-search{
+    display: flex;
+    justify-content: flex-end;
+    margin:10px;
+}
+
+.purchase-search p{
+    /* text-align: center; */
+    margin-right: 25px;
+    margin-top: 10px;
+    font-size: large;
+}
+
+.search__button{
+    display: inline-flex;
+    margin-right: 12px;
+    height: auto;
+    width: fit-content;
+    margin-left: 15px;
+    background-color: rgb(58, 58, 241);
+    border: 2px solid rgb(58, 58, 241);
+    border-radius: 8px;
+}
+.clear__button{
+    display: inline-flex;
+    background-color: rgb(58, 58, 241);
+    border: 2px solid rgb(58, 58, 241);
+    border-radius: 8px;
+}
+.MuiButton-root{
+    color: white !important;
+}
+
+#outlined{
+    font-family: Arial, Helvetica, sans-serif;
+}
