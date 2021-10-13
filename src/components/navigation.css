@@ -14,5 +14,7 @@
 }
 
 #outlined-basic{
-    width: 35px;
+    width: 65px;
+    height: 25px;
+    padding-left: 8px;
 }

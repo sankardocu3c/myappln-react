@@ -21,11 +21,12 @@ function Navigation(props) {
 		setpgno('');
 	}
 	function getpage(event) {
-		console.log(event.nativeEvent.data)
-		if(event.nativeEvent.data === null){
-			setpgno(pgno.slice(0,-1))
+		if (event.nativeEvent.data != null) {
+			setpgno(pgno + event.nativeEvent.data)
+		}else{
+			console.log(pgno.slice(0, pgno.length - 1));
+			setpgno(pgno.slice(0, pgno.length - 1));
 		}
-		setpgno(pgno + event.nativeEvent.data)
 	}
 	return (
 		<div className="navig">

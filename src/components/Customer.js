@@ -2,133 +2,124 @@ import "./customer.css";
 import Navigation from "./Navigation";
 import Purchase from "./Purchase";
 import TextField from "@mui/material/TextField";
-import { Button, SliderValueLabel } from "@mui/material";
+import InputAdornment from "@mui/material/InputAdornment";
 import { useEffect, useState } from "react";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 import { createTheme } from "@mui/material";
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "@material-ui/styles";
 
 function Customer(props) {
 	const Theme = createTheme({
 		typography: {
-		  fontFamily: [
-			'-apple-system',
-			'BlinkMacSystemFont',
-			'"Segoe UI"',
-			'Roboto',
-			'"Helvetica Neue"',
-			'Arial',
-			'sans-serif',
-			'"Apple Color Emoji"',
-			'"Segoe UI Emoji"',
-			'"Segoe UI Symbol"',
-		  ].join(','),
+			fontFamily: ["Roboto"].join(","),
+			fontSize: 22,
 		},
-	  });
-	const[search,setsearch] = useState('');
-	const[filtersearch,setfiltersearch] = useState([]);
-	var temp =[];
+	});
+	const [search, setsearch] = useState("");
+	const [filtersearch, setfiltersearch] = useState([]);
+	var temp = [];
 	purchasedata();
-	useEffect(()=>{
+	useEffect(() => {
 		setfiltersearch(temp);
-	},[]);
+	}, []);
 	const month = props.dob.toLocaleString("en-US", { month: "long" });
 	const day = props.dob.toLocaleString("en-US", { day: "2-digit" });
 	const year = props.dob.getFullYear();
 	function changeiteratornext() {
 		props.fn1();
-		temp = props.purchase.filter((pur)=> props.custid === pur.custid-1);
+		temp = props.purchase.filter((pur) => props.custid === pur.custid - 1);
 		setfiltersearch(temp);
 	}
 	function changeiteratorprev() {
 		props.fn2();
-		temp = props.purchase.filter((pur)=> props.custid === pur.custid+1);
+		temp = props.purchase.filter((pur) => props.custid === pur.custid + 1);
 		setfiltersearch(temp);
 	}
-	function changepage(passdata){
+	function changepage(passdata) {
 		console.log(passdata);
-		setfiltersearch(props.purchase.filter((pur)=> passdata === pur.custid));
+		setfiltersearch(props.purchase.filter((pur) => passdata === pur.custid));
 		console.log("in cust.js" + passdata);
 		props.fn3(passdata);
-		
 	}
-	function purchasedata(){
-		temp = props.purchase.filter((pur)=> props.custid === pur.custid);
+	function purchasedata() {
+		temp = props.purchase.filter((pur) => props.custid === pur.custid);
 	}
-	function clearfilter(){
-		temp = props.purchase.filter((pur)=> props.custid === pur.custid);
+	function clearfilter() {
+		temp = props.purchase.filter((pur) => props.custid === pur.custid);
 		setfiltersearch(temp);
+		setsearch("");
 	}
-	function searchfield(event){
-		if(event.nativeEvent.data != null){
-			setsearch(search+event.nativeEvent.data);	
+	function searchfield(event) {
+		if (event.nativeEvent.data != null) {
+			setsearch(search + event.nativeEvent.data);
+		} else {
+			console.log(search.slice(0, search.length - 1));
+			setsearch(search.slice(0, search.length - 1));
 		}
-	}
-	function searchfilter(event){
+		//filter
+		console.log(search);
 		var arr = [];
 		var k = 0;
-		console.log("temp: "+temp)
-		temp.forEach(ele => {
-			console.log(search)
-			console.log("element :" + ele.orderid + ";")
-			if(ele.orderid.toString().match(search)){
+		temp.forEach((ele) => {
+			if (ele.orderid.toString().match(search)) {
 				arr[k] = ele.orderid.toString();
-				k = k+1;
-				console.log("working orderid");
+				k = k + 1;
+				//console.log("working orderid");
 				return;
-			}else if(ele.proddetail.toString().match(search)){
+			} else if (
+				ele.proddetail.toString().toLowerCase().match(search.toLowerCase())
+			) {
 				arr[k] = ele.orderid.toString();
-				k = k+1;
-				console.log("working proddetail");
+				k = k + 1;
+				//console.log("working proddetail");
 				return;
-			}else if(ele.sku.toString().match(search)){
+			} else if (ele.sku.toString().match(search)) {
 				arr[k] = ele.orderid.toString();
-				k = k+1;
-				console.log("working sku");
+				k = k + 1;
+				//console.log("working sku");
 				return;
-			}else if(ele.cost.toString().match(search)){
+			} else if (ele.cost.toString().match(search)) {
 				arr[k] = ele.orderid.toString();
-				k = k+1;
-				console.log("working cost");
+				k = k + 1;
+				//console.log("working cost");
 				return;
-			}else if(ele.quantity.toString().match(search)){
+			} else if (ele.quantity.toString().match(search)) {
 				arr[k] = ele.orderid.toString();
-				k = k+1;
-				console.log("working quantity");
+				k = k + 1;
+				//console.log("working quantity");
 				return;
-			}else if(ele.amt.toString().match(search)){
+			} else if (ele.amt.toString().match(search)) {
 				arr[k] = ele.orderid.toString();
-				k = k+1;
-				console.log("working amt");
+				k = k + 1;
+				//console.log("working amt");
 				return;
-			}else if(ele.custid.toString().match(search)){
+			} else if (ele.custid.toString().match(search)) {
 				arr[k] = ele.orderid.toString();
-				k = k+1;
-				console.log("working custid");
+				k = k + 1;
+				//console.log("working custid");
 				return;
 			}
 		});
 		var a = [];
-		for(let i=0;i<k;i++){
-			for(let j=0;j<temp.length;j++){
-				console.log("temp.length() "+ temp.length+" i "+i+" arr[i] "+ arr[i] +" temp[j].custid.toString() " + temp[j].custid.toString())
-				if(arr[i] === temp[j].orderid.toString() ){
-					console.log(temp[j]);
-					a.push(temp[j])	
+		for (let i = 0; i < k; i++) {
+			for (let j = 0; j < temp.length; j++) {
+				if (arr[i] === temp[j].orderid.toString()) {
+					a.push(temp[j]);
 				}
 			}
 		}
-		console.log(a);
 		setfiltersearch(a);
-		setsearch('');
 	}
 	return (
 		<div>
-			<ThemeProvider theme={Theme}>
 			<div className="container">
 				<div className="flexbox-item">
-					<p className="flexbox-item flexbox-item1">
+					<ThemeProvider>
+					<p className="flexbox-item flexbox-item1" theme={Theme}>
 						Customer ID : {props.custid}
 					</p>
+					</ThemeProvider>
 					<p className="flexbox-item flexbox-item2">
 						Customer FName : {props.fname}
 					</p>
@@ -147,7 +138,11 @@ function Customer(props) {
 					<p className="flexbox-item flexbox-item7">State : {props.states}</p>
 					<p className="flexbox-item flexbox-item8">Zip : {props.zip}</p>
 					<p className="flexbox-item flexbox-item9">
-						<Navigation fn1={changeiteratornext} fn2={changeiteratorprev} fn3={changepage} />
+						<Navigation
+							fn1={changeiteratornext}
+							fn2={changeiteratorprev}
+							fn3={changepage}
+						/>
 					</p>
 				</div>
 			</div>
@@ -155,25 +150,33 @@ function Customer(props) {
 				<div className="purchase-search">
 					<TextField
 						id="outlined"
-						label="Search" 
+						label="Search"
 						variant="outlined"
 						size="small"
 						color="primary"
 						value={search}
 						onChange={searchfield}
+						sx={{ m: 1, width: "25ch",padding: "3px",paddingLeft : "5"}}
+						InputProps={{
+							endAdornment: (
+								<InputAdornment position="end">
+									<IconButton
+										aria-label="Close"
+										onClick={clearfilter}
+										edge="end"
+										color="primary"
+									>
+										<CloseIcon/>
+									</IconButton>
+								</InputAdornment>
+							),
+						}}
 					/>
-					<div className="search__button">
-						<Button onClick={searchfilter}>SEARCH</Button>
-					</div>
-					<div className="clear__button">
-						<Button onClick={clearfilter}>CLEAR</Button>
-					</div>
 				</div>
 				<div className="purchase__pagination">
-					<Purchase purch={filtersearch}/>
+					<Purchase purch={filtersearch} />
 				</div>
 			</div>
-			</ThemeProvider>
 		</div>
 	);
 }

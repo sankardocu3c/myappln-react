@@ -1,15 +1,29 @@
-.table-container{
-    margin-left: 50px;
-    margin-right: 50px;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    border : 1px black transparent;
-    width: auto;
-    border-radius: 12px;
-    height: auto;
+.MuiTableSortLabel-root{
+    font-size: 20px !important;
+    font-weight: bold !important;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
 }
-.MuiTable-root{
-    font-family: Arial, Helvetica, sans-serif;
+
+.MuiTableBody-root :hover{
+    background-color: rgb(235, 235, 235);
+} 
+.MuiTableCell-root{
+    font-size: 17px !important;
 }
-.table-mui{
-    font-family: Arial, Helvetica, sans-serif;
+.PageSizeSelector-pageSizeSelector-41{
+    font-size: 17px !important;
+}
+.MuiSelect-root{
+    font-size: 17px !important;
+    margin-top: 3px !important;
+}
+.Pagination-rowsLabel-48 {
+    font-size: 17px !important;
+    margin-top: 3px !important;
+}
+.Pagination-button-49{
+    margin: 2px !important;
+}
+.Pagination-button-49 :hover{
+    color: yellow !important;
 }

@@ -43,6 +43,7 @@ function App() {
 			.post(`${url}purchdata`)
 			.then((res) => {
 				setpurchasedata(res.data)
+				console.log(res.data)
 			})
 			.catch((error) => {
 				console.log(error);
@@ -60,8 +61,13 @@ function App() {
 		}
 	}
 	function changepage(pg){
-		console.log("in app.js" + pg);
-		setiterator(pg-1)
+		if (pg >0 && pg <1000) {
+			console.log("in app.js" + pg);
+			setiterator(pg-1)
+		}
+		else{
+			alert('invalid page number');
+		}
 	}
 	return (
 		<div className="root">
