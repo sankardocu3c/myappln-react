@@ -39,7 +39,7 @@ function Navigation(props) {
 			<div className="goto-customer">
 				<TextField
 					id="outlined-basic"
-					label="Goto"
+					label="Go to"
 					variant="outlined"
 					size="small"
 					color="primary"

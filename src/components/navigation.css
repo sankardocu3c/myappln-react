@@ -4,17 +4,20 @@
 }
 .button{
     display: inline-flex;
-    height: auto;
+    height: max-content;
     width: fit-content;
-    margin-right: 20px;
+    margin-right: 10px;
     border-radius: 8px;   
     background-color: rgb(58, 58, 241);
     border: 2px solid rgb(58, 58, 241);
+    background-color: rgb(58, 58, 241)!important;
     
 }
-
+.MuiButton-textPrimary{
+    color: white !important;
+}
 #outlined-basic{
     width: 65px;
+    padding-left: 4px;
     height: 25px;
-    padding-left: 8px;
 }

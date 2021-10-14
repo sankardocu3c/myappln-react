@@ -15,7 +15,7 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = (theme) => ({
   tableStriped: {
     "& tbody tr:nth-of-type(odd)": {
-      backgroundColor: "rgb(211,211,211)"
+      backgroundColor: "rgb(235, 235, 235)"
     },
     
   },
@@ -63,13 +63,13 @@ export default (props) => {
   const [pageSizes] = useState([10, 25, 100]);
   const rows = props.purch
   const [defaultColumnWidths] = useState([
-    { columnName: "orderid", width: 180 },
-    { columnName: "proddetail", width: 360 },
-    { columnName: "sku", width: 180 },
-    { columnName: "cost", width: 120 },
-    { columnName: "quantity", width: 120 },
-    { columnName: "amt", width: 120 },
-    { columnName: "custid", width: 180 }
+    { columnName: "orderid", width: 135 },
+    { columnName: "proddetail", width: 330 },
+    { columnName: "sku", width: 190 },
+    { columnName: "cost", width: 100 },
+    { columnName: "quantity", width: 80 },
+    { columnName: "amt", width: 130 },
+    { columnName: "custid", width: 165 }
   ]);
   return (
     <div className="purchase__table">

@@ -18,6 +18,7 @@ function Customer(props) {
 	});
 	const [search, setsearch] = useState("");
 	const [filtersearch, setfiltersearch] = useState([]);
+	var space =" ";
 	var temp = [];
 	purchasedata();
 	useEffect(() => {
@@ -117,26 +118,26 @@ function Customer(props) {
 				<div className="flexbox-item">
 					<ThemeProvider>
 					<p className="flexbox-item flexbox-item1" theme={Theme}>
-						Customer ID : {props.custid}
+							<b > Customer ID&nbsp;:&nbsp;</b> {props.custid}
 					</p>
 					</ThemeProvider>
 					<p className="flexbox-item flexbox-item2">
-						Customer FName : {props.fname}
+					<b>Customer FName&nbsp;:&nbsp;</b> {props.fname}
 					</p>
 					<p className="flexbox-item flexbox-item3">
-						Customer LName : {props.lname}
+					<b>Customer LName&nbsp;:&nbsp;</b>{props.lname}
 					</p>
 				</div>
 				<div className="flexbox-item">
 					<p className="flexbox-item flexbox-item4">
-						DOB : {month} {day},{year}
+					<b>DOB&nbsp;:&nbsp;</b>{month} {day},{year}
 					</p>
-					<p className="flexbox-item flexbox-item5">Address : {props.addr}</p>
-					<p className="flexbox-item flexbox-item6">City : {props.city}</p>
+					<p className="flexbox-item flexbox-item5"><b>Address&nbsp;:&nbsp;</b> {props.addr}</p>
+					<p className="flexbox-item flexbox-item6"><b>City&nbsp;:&nbsp;</b>{props.city}</p>
 				</div>
 				<div className="flexbox-item">
-					<p className="flexbox-item flexbox-item7">State : {props.states}</p>
-					<p className="flexbox-item flexbox-item8">Zip : {props.zip}</p>
+					<p className="flexbox-item flexbox-item7"><b>State&nbsp;:&nbsp;</b> {props.states}</p>
+					<p className="flexbox-item flexbox-item8"><b>Zip&nbsp;:&nbsp;</b> {props.zip}</p>
 					<p className="flexbox-item flexbox-item9">
 						<Navigation
 							fn1={changeiteratornext}
